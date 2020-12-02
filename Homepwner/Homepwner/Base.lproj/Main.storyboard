@@ -230,11 +230,18 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdV-Z7-02O">
-                                        <rect key="frame" x="0.0" y="227" width="343" height="380"/>
+                                        <rect key="frame" x="0.0" y="227" width="343" height="340"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Kl-m9-WPU">
+                                        <rect key="frame" x="0.0" y="577" width="343" height="30"/>
+                                        <state key="normal" title="Delete"/>
+                                        <connections>
+                                            <action selector="innerDeleteButton:forEvent:" destination="XN6-Ql-2T0" eventType="touchUpInside" id="dqm-l4-RTq"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="tJ3-VO-M7v" firstAttribute="leading" secondItem="lX6-2o-LQ2" secondAttribute="leading" id="4u8-qZ-lnL"/>

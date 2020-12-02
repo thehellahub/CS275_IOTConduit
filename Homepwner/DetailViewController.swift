@@ -18,6 +18,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     }
     var newItem = false
     
+    
     @IBOutlet var idField: UITextField! // ID field
     @IBOutlet var dateLabel: UILabel! // Unused
     @IBOutlet var nameField: UITextField! // "Make" Text field
@@ -95,6 +96,33 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    @IBAction func innerDeleteButton(_ sender: UIButton, forEvent event: UIEvent) {
+        
+        print("inner delete button pressed")
+        
+        var id = idField.text ?? "" // getting the text in the ID field
+        
+        // If the ID field has text in it
+        if id.count > 0 {
+            
+            // Establishing connection to the DB
+            let db = Firestore.firestore() // Load the Firestore db
+            
+            // Delete item from the db where id = item.ID
+            db.collection("car_data").document(id).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+            }
+            
+            // Go back to item view controller
+            // see func "unwind" in ItemsViewController.swift
+            performSegue(withIdentifier: "unwind", sender: sender) // unwind the segue
+        
+        }
+    }
     
     @IBAction func saveAction(_ sender: Any) {
         // "Save" changes to item
